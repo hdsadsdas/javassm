@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--mapper 是当前文件的根标签 必须的
+   namespace 要求你使用dao接口的全限定名称 dao接口路径-->
+<mapper namespace="org.example.dao.GoodsDao">
+
+    <!--select 表示查询-->
+    <!--update 表示更新-->
+    <!--insert 表示插入-->
+    <!--delete 表示删除-->
+
+    <!--
+   id 表示你要执行的sql语句的唯一标识 ，mybatis会使用这个id的值来查找要执行的语句
+    值是 接口的方法名称。
+
+   resultType : 表示要存放的对象类型
+               值是对象位置
+-->
+    <select id="selectGoods" resultType="Goods">
+
+        select *
+        from goods
+        where id = #{gid}
+
+    </select>
+
+    <update id="updateGoods">
+        update goods
+        set amount = amount - #{amount}
+        where id = #{id}
+    </update>
+
+</mapper>
